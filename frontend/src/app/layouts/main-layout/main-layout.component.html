@@ -1,0 +1,49 @@
+<!-- navbar di bagian atas, mengirim event untuk toggle sidebar -->
+<app-navbar (toggleSidebarEvent)="toggleSidebar()"></app-navbar>
+
+<!-- sidebar di samping kiri, terbuka atau tertutup berdasarkan status isSidebarOpen -->
+<app-sidebar [isOpen]="isSidebarOpen"></app-sidebar>
+
+<!-- main content: jika sidebar terbuka, maka ada margin kiri 32 -->
+<main class="pt-1" [class.ml-32]="isSidebarOpen">
+  <!-- tempat untuk me-render halaman dashboard atau halaman lain setelah login -->
+  <router-outlet></router-outlet>
+</main>
+
+
+<!-- opsi ka 1 -->
+<!-- <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+<div class="flex pt-16">
+  <app-sidebar [isOpen]="isSidebarOpen"></app-sidebar>
+
+  <div
+    class="flex-1 p-4 transition-all duration-300"
+    [ngStyle]="{ 'margin-left': isSidebarOpen ? '16rem' : '5rem' }"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+
+<!-- opsi ke 2 -->
+<!-- <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+<div class="flex pt-16 relative">
+  <div 
+    *ngIf="isSidebarOpen" 
+    class="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+    (click)="toggleSidebar()">
+  </div>
+
+  <app-sidebar 
+    [isOpen]="isSidebarOpen" 
+    class="z-30">
+  </app-sidebar>
+
+  <div
+    class="flex-1 p-4 transition-all duration-300"
+    [class.ml-64]="isSidebarOpen && isDesktop"
+    [class.ml-20]="!isSidebarOpen && isDesktop"
+    [class.ml-0]="!isDesktop"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
