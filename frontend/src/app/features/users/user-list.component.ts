@@ -68,7 +68,7 @@ export class UserListComponent implements OnInit {
 
   // navigasi ke halaman reset password user
   handleResetPassword(id: string) {
-    this.router.navigate(['/users/reset-password', id]);
+    this.router.navigate(['/admin/reset-password', id]);
   }
 
   // variabel untuk pencarian dan pagination
