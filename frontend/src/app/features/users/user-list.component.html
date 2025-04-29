@@ -1,0 +1,80 @@
+<div class="py-8 px-8 w-full">
+  <div class="w-full">
+    <!-- input pencarian -->
+    <div class="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="🔍 Cari nama atau email..."
+        class="border border-gray-300 px-4 py-2 rounded-md w-full sm:w-64"
+      />
+    </div>
+
+    <!-- tabel daftar user -->
+    <div class="overflow-x-auto">
+      <table class="w-full bg-white border border-gray-300 rounded-lg text-sm">
+        <thead class="bg-gray-200 text-gray-700">
+          <tr>
+            <th class="py-2 px-4 text-left">No.</th>
+            <th class="py-2 px-4 text-left">Nama</th>
+            <th class="py-2 px-4 text-left">Email</th>
+            <th class="py-2 px-4 text-left">Role</th>
+            <th class="py-2 px-4 text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- loop data user yang sudah difilter dan dipaginasi -->
+          <tr
+            *ngFor="let user of filteredUsers; let i = index"
+            class="border-t border-gray-300"
+          >
+            <!-- nomor urut berdasarkan halaman -->
+            <td class="py-2 px-4">
+              {{ (currentPage - 1) * itemsPerPage + i + 1 }}.
+            </td>
+            <td class="py-2 px-4">{{ user.name }}</td>
+            <td class="py-2 px-4">{{ user.email }}</td>
+            <td class="py-2 px-4">{{ user.role }}</td>
+            <!-- tombol aksi -->
+            <td class="py-2 px-4 space-x-1 text-center">
+              <!-- edit user -->
+              <button
+                (click)="handleEdit(user.id)"
+                class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
+              >
+                ✏ Edit
+              </button>
+              <!-- hapus user -->
+              <button
+                (click)="handleDelete(user.id)"
+                class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+              >
+                🗑 Delete
+              </button>
+              <!-- reset password -->
+              <button
+                (click)="handleResetPassword(user.id)"
+                class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600"
+              >
+                🔄 Reset
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- pagination -->
+    <div class="mt-4 flex justify-center gap-2">
+      <!-- tombol sesuai jumlah total halaman -->
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        (click)="setPage(i + 1)"
+        [class.bg-blue-500]="currentPage === i + 1"
+        class="px-3 py-1 rounded border border-gray-300"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</div>
