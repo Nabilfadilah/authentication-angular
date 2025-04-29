@@ -19,9 +19,9 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     HttpClientModule,     // untuk API request
     RouterModule,         // modul routing
     AppComponent,         // komponen standalone, harus dimasukkan ke imports
-    LoginComponent,        // komponen standalone lainnya juga harus di-import, bukan di declarations
-    SidebarComponent,
-    NavbarComponent,
+    LoginComponent,       // komponen standalone lainnya juga harus di-import, bukan di declarations
+    SidebarComponent,     // komponen
+    NavbarComponent,      // komponen
     CommonModule
   ],
   providers: [
