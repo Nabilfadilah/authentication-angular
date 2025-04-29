@@ -4,10 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms'; // untuk reactive form (misal form login/register)
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http'; // HTTP dan interceptor
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component'; // Komponen utama (standalone)
 import { LoginComponent } from './features/auth/login/login.component'; // komponen login (standalone)
 import { AuthInterceptor } from './core/interceptors/auth.interceptor'; // interceptor custom
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -16,7 +19,10 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor'; // inter
     HttpClientModule,     // untuk API request
     RouterModule,         // modul routing
     AppComponent,         // komponen standalone, harus dimasukkan ke imports
-    LoginComponent        // komponen standalone lainnya juga harus di-import, bukan di declarations
+    LoginComponent,        // komponen standalone lainnya juga harus di-import, bukan di declarations
+    SidebarComponent,
+    NavbarComponent,
+    CommonModule
   ],
   providers: [
     {
