@@ -1,0 +1,9 @@
+/* Tambahan kecil untuk smooth */
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+  
+.active {
+    background-color: #4a5568;
+}
+  
