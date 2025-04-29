@@ -1,34 +1,24 @@
-<!-- container utama dengan tinggi minimal layar penuh dan center -->
-<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-  
-  <!-- judul sambutan dengan nama user -->
-  <h2 class="p-5 bg-fuchsia-700 text-green-600 text-2xl font-bold">
-    Hello, {{ user?.name }} 👋
-    <!-- menggunakan optional chaining (?.) untuk mencegah error jika user null -->
-  </h2>
+<!-- Container utama dengan minimum tinggi layar penuh -->
+<div
+  class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-8"
+>
+  <!-- Card sambutan user -->
+  <div
+    class="w-full max-w-md bg-white rounded-xl shadow-lg p-6 text-center space-y-4"
+  >
+    <!-- Greeting -->
+    <h2 class="text-3xl font-bold text-fuchsia-700">
+      Hello, <span class="text-gray-900">{{ user?.name }}</span> 👋
+    </h2>
 
-  <!-- card untuk menampilkan detail user -->
-  <div class="p-6 mb-5 bg-white rounded-lg shadow-md text-center">
-    <h3 class="text-xl font-semibold text-gray-800">User Details</h3>
-    <p class="text-gray-700 mt-2"><strong>Email:</strong> {{ user?.email }}</p>
-    <p class="text-gray-700"><strong>Role:</strong> {{ user?.role }}</p>
-  </div>
+    <!-- Informasi user -->
+    <div class="space-y-2 mt-4">
+      <h3 class="text-xl font-semibold text-gray-800">User Details</h3>
 
-  <!-- navigasi dan tombol aksi -->
-  <div class="flex items-center gap-3">
-    <!-- tombol menuju halaman biodata -->
-    <a routerLink="/biodata" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800">
-      Biodata
-    </a>
-
-    <!-- jika user adalah admin, tampilkan tombol menuju daftar user -->
-    <a *ngIf="user?.role === 'admin'" routerLink="/users" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-800">
-      User List
-    </a>
-
-    <!-- tombol logout -->
-    <button (click)="handleLogout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800">
-      Logout
-    </button>
+      <div class="text-gray-600">
+        <p><span class="font-medium">Email:</span> {{ user?.email }}</p>
+        <p><span class="font-medium">Role:</span> {{ user?.role }}</p>
+      </div>
+    </div>
   </div>
 </div>
