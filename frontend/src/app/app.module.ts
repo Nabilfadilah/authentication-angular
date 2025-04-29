@@ -11,6 +11,7 @@ import { LoginComponent } from './features/auth/login/login.component'; // kompo
 import { AuthInterceptor } from './core/interceptors/auth.interceptor'; // interceptor custom
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     LoginComponent,       // komponen standalone lainnya juga harus di-import, bukan di declarations
     SidebarComponent,     // komponen
     NavbarComponent,      // komponen
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [
     {
