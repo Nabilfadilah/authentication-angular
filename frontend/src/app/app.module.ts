@@ -12,6 +12,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor'; // inter
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { UserEditComponent } from './features/users/user-edit.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,     // komponen
     NavbarComponent,      // komponen
     CommonModule,
-    FormsModule
+    FormsModule,
+    UserEditComponent
   ],
   providers: [
     {
