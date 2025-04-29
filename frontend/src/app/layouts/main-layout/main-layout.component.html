@@ -1,15 +1,22 @@
-<!-- navbar di bagian atas, mengirim event untuk toggle sidebar -->
 <app-navbar (toggleSidebarEvent)="toggleSidebar()"></app-navbar>
 
-<!-- sidebar di samping kiri, terbuka atau tertutup berdasarkan status isSidebarOpen -->
-<app-sidebar [isOpen]="isSidebarOpen"></app-sidebar>
+<div class="flex pt-10">
+  <app-sidebar [isOpen]="isSidebarOpen" class="px-8 py-5"></app-sidebar>
 
-<!-- main content: jika sidebar terbuka, maka ada margin kiri 32 -->
-<main class="pt-1" [class.ml-32]="isSidebarOpen">
-  <!-- tempat untuk me-render halaman dashboard atau halaman lain setelah login -->
-  <router-outlet></router-outlet>
-</main>
+  <main class="pt-1 flex-1 transition-all duration-300" [class.ml-32]="isSidebarOpen">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 
+<!-- <app-navbar class="fixed top-0 left-0 w-full z-20" (toggleSidebarEvent)="toggleSidebar()"></app-navbar>
+
+<div class="flex pt-[64px]">
+  <app-sidebar  [isOpen]="isSidebarOpen"></app-sidebar>
+
+  <main class="ml-32 flex-1 p-4" [class.ml-32]="isSidebarOpen">
+    <router-outlet></router-outlet>
+  </main>
+</div> -->
 
 <!-- opsi ka 1 -->
 <!-- <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
