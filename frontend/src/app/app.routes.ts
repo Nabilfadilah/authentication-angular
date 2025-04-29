@@ -5,6 +5,9 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { UserListComponent } from './features/users/user-list.component';
+import { UserEditComponent } from './features/users/user-edit.component';
+import { UserResetPasswordComponent } from './features/users/user-reset-password.component';
 
 // opsi ke 2
 export const routes: Routes = [
@@ -24,8 +27,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard], // hanya dapat diakses jika sudah login (AuthGuard akan mengecek autentikasi)
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UserListComponent },
+      { path: 'users/:id', component: UserEditComponent },
+      { path: 'admin/reset-password/:id', component: UserResetPasswordComponent },
     ],
-  }
+  },
 ];
 
 // opsi ke 1
